@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	// enntry file
@@ -8,8 +9,8 @@ module.exports = {
 		port: 9000,
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist/js'),
-		filename: 'bundle.js',
+		path: path.resolve(__dirname, 'dist/'),
+		filename: './js/bundle.js',
 	},
 	module: {
 		rules: [
@@ -26,6 +27,12 @@ module.exports = {
 				},
 			},
 		],
+	},
+	plugins: [new HtmlWebPackPlugin({ template: './index.html', filename: './index.html' })],
+	optimization: {
+		minimize: true,
+		splitChunks: {},
+		concatenateModules: true,
 	},
 	devtool: 'source-map',
 	// https://webpack.js.org/concepts/mode/#mode-development
