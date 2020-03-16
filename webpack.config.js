@@ -7,6 +7,7 @@ module.exports = {
 	// 컴파일 + 번들링된 js 파일이 저장될 경로와 이름 지정
 	devServer: {
 		port: 9000,
+		contentBase: __dirname + '/dist/',
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist/'),
